@@ -1,0 +1,34 @@
+PImage img;//Tipo de datos para almacenar imágenes
+
+void setup () {
+  size(1412, 603);//Tamaño canvas
+  img = loadImage("Poster.png");//Carga la imagen
+}
+
+void draw() {
+  image(img, 0, 0);//Dibuja una imagen en la ventana
+  color posColor = img.get(mouseX, mouseY);//Datos del color de la imagen
+  fill(posColor);//Llenar con posColor
+  ellipse(mouseX, mouseY, 50, 50);//el circulo es el nuevo puntero
+
+  float posB = brightness(posColor); // extrae el valor del color por medio del brillo
+  fill(posB);//llenar
+  rect(0, 90, posB, 30);//Rectangulo
+  
+
+  float posRed = red(posColor);//Extrae el valor de R
+  fill(255, 0, 0);//Muestra el valor de R
+  rect(0, 0, posRed, 30);// Llena el valor de R en un rectangulo
+  
+
+
+  float posGreen = green(posColor);//Extrae el valor de G
+  fill(0, 255, 0);//Muestra el valor de G
+  rect(0, 30, posGreen, 30);// Llena el valor de G en un rectangulo
+
+
+  float posBlue = blue(posColor);//Extrae el valor de B
+  fill(0, 0, 255);//Muestra el valor de B
+  rect(0, 60, posBlue, 30); // Llena el valor de B en un rectangulo
+ text(posBlue, 12, 60); 
+}
